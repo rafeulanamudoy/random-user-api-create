@@ -1,16 +1,17 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+require("dotenv").config();
 
 
 const app = express();
 app.use(express.json())
 app.use(cors());
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
 
-    res.send("express project start")
+    res.send("runnig random user api")
 })
 
 
@@ -334,7 +335,7 @@ app.delete("/user/delete", (req, res) => {
 
 
 
-app.listen(PORT, () => {
+app.listen(port, () => {
 
-    console.log(`server is starting at ${PORT}`)
+    console.log(`server is starting at ${port}`)
 })
